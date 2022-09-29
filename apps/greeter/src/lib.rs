@@ -36,19 +36,9 @@ use zenith_derive::main;
             write_output(bytes)
         }
 */
-#[derive(Deserialize, Serialize)]
-pub struct MyInput {
-    pub name: String,
-}
-
-#[derive(Deserialize, Serialize)]
-pub struct MyOutput {
-    pub greeting: String,
-}
-
 #[main(1024, 1024, zenith::prelude::ZenDeserializer::Bincode)]
-pub fn run(input: MyInput) -> MyOutput {
+pub fn run(input: Input) -> Output {
     let greeting = format!("Hello, {}", input.name);
-    let output = MyOutput { greeting };
+    let output = Output { greeting };
     output
 }
